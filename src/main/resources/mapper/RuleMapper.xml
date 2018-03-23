@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.neo.datamanager.dao.RuleDao">
+    <resultMap id="RuleMapper" type="com.neo.datamanager.dao.RuleEntity">
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="app_name" jdbcType="VARCHAR" property="appName"/>
+        <result column="table_name" jdbcType="VARCHAR" property="tableName"/>
+        <result column="owner" jdbcType="VARCHAR" property="owner"/>
+        <result column="mobile" jdbcType="VARCHAR" property="mobile"/>
+    </resultMap>
+
+    <insert id="insert" parameterType="com.neo.datamanager.dao.RuleEntity">
+        INSERT INTO
+        dq_phone_alarm_conf(id,app_Name,job_Name,table_Name,owner,mobile)
+        VALUES(#{id},#{appName},#{tableName},#{owner},#{mobile});
+    </insert>
+    <update id="update" parameterType="com.neo.datamanager.dao.RuleEntity">
+        UPDATE dq_phone_alarm_conf
+        SET id = #{id},
+            app_Name = #{appName},
+            table_Name = #{tableName},
+            owner = #{owner},
+            mobile = #{mobile}
+         WHERE id=#{id}
+    </update>
+
+    <select id="selectById" resultMap="RuleMapper" parameterType="java.lang.Integer">
+        SELECT id,app_Name,table_Name,owner,mobile
+        FROM dq_phone_alarm_conf
+        WHERE id=#{id};
+    </select>
+
+    <select id="selectAll" resultMap="RuleMapper" parameterType="java.lang.Integer">
+        select  id,
+                app_name,
+                table_name,
+                owner,
+                mobile
+          from  dq_phone_alarm_conf
+          <if test="start!=null and count!=null">
+                    limit #{start},#{count}
+          </if>
+    </select>
+
+    <delete id="delete" parameterType="java.lang.Integer">
+        delete
+          from dq_phone_alarm_conf
+         where id=#{id}
+    </delete>
+
+    <select id="total" resultType="int">
+        select count(*) from dq_phone_alarm_conf;
+    </select>
+</mapper>
