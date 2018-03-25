@@ -74,9 +74,10 @@
 					</table>
 				</div>
 				<div class="col-md-11" style="text-align:right">
+					<label>第${page.curCnt}/${page.pageCnt}页 共${page.totalCnt}条</label>
 					<a href="?start=0">首 页</a>
-					<a href="?start=${page.start-page.count}">上一页</a>
-					<a href="?start=${page.start+page.count}">下一页</a>
+					<a href="?start=${page.start-page.count}" onclick="return checkFirst()">上一页</a>
+					<a href="?start=${page.start+page.count}" onclick="return checkNext()">下一页</a>
 					<a href="?start=${page.last}">末 页</a>
 				</div>
 			</div>
@@ -86,6 +87,24 @@
 </body>
 
 <script type="text/javascript">
+
+    function checkFirst(){
+        if(${page.start>=10}){
+
+            return true;
+
+        }
+        alert("已到页首,无法加载更多");
+        return false;
+    }
+
+    function checkNext(){
+        if(${page.start  < page.last}){
+            return true;
+        }
+        alert("已到页尾，无法加载更多页");
+        return false;
+    }
 
 	function deleteUser() {
 		if (confirm("确认删除吗？")) {
