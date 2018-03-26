@@ -22,8 +22,8 @@ public class RuleServiceImpl implements RuleService {
         return ruleDao.insert(ruleEntity);
     }
 
-    public void updateRule(Integer id) {
-        ruleDao.update(id);
+    public void updateRule(RuleEntity ruleEntity) {
+         ruleDao.update(ruleEntity);
     }
 
     public void deleteRule(Integer id) {

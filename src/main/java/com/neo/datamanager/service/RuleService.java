@@ -10,7 +10,7 @@ public interface RuleService {
 
     public Integer InsertRule(RuleEntity ruleEntity);
 
-    public void updateRule(Integer id);
+    public void updateRule(RuleEntity ruleEntity);
 
     public void deleteRule(Integer id);
 

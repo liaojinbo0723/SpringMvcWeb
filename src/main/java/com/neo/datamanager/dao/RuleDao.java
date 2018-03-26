@@ -9,14 +9,14 @@ import java.util.List;
 public interface RuleDao {
 
 
-    List<RuleEntity> selectAll(Page page);
+    public List<RuleEntity> selectAll(Page page);
     /**
      * 插入规则记录
      *
      * @param userEntity
      * @return
      */
-    Integer insert(RuleEntity userEntity);
+    public Integer insert(RuleEntity userEntity);
 
     /**
      * 删除规则记录
@@ -24,7 +24,7 @@ public interface RuleDao {
      * @param id
      * @return
      */
-    void delete(Integer id);
+    public void delete(Integer id);
 
     /**
      * 更新规则记录
@@ -32,7 +32,7 @@ public interface RuleDao {
      * @param
      * @return
      */
-    void update(Integer id);
+    public void update(RuleEntity userEntity);
 
     /**
      * 根据用户id查找规则
@@ -40,7 +40,7 @@ public interface RuleDao {
      * @param id
      * @return
      */
-    RuleEntity selectById(Integer id);
+    public RuleEntity selectById(Integer id);
     public int total();
 }
 

@@ -36,45 +36,37 @@
 			</div>
 
 			<div class="row" style="width: 480px; height: 300px;">
-				<form action="${APP_PATH }/addRule" class="form-horizontal"
-					method="post">
+				<form action="${APP_PATH }/addRule" class="form-horizontal" method="post">
 					<div class="form-group" style="position: relative; top: 30px">
-						<label for="inputPassword3" class="col-sm-2 control-label">应用名</label>
+						<label class="col-sm-2 control-label">应用名</label>
 						<div class="col-sm-10">
-							<input type="text" class="form-control" id="inputPassword3"
-								name="appname" placeholder="AppName" required="required">
+							<input type="text" class="form-control"
+								name="appName" placeholder="AppName" required="required">
 						</div>
 					</div>
 					<div class="form-group" style="position: relative; top: 30px">
-						<label for="inputPassword3" class="col-sm-2 control-label">作业名</label>
+						<label class="col-sm-2 control-label">表名</label>
 						<div class="col-sm-10">
-							<input type="text" class="form-control" id="inputPassword3"
-								name="jobname" placeholder="JobName" required="required">
+							<input type="text" class="form-control"
+								name="tableName" placeholder="TableName" required="required">
 						</div>
 					</div>
 					<div class="form-group" style="position: relative; top: 30px">
-						<label for="inputPassword3" class="col-sm-2 control-label">表名</label>
+						<label class="col-sm-2 control-label">责任人</label>
 						<div class="col-sm-10">
-							<input type="text" class="form-control" id="inputPassword3"
-								name="tablename" placeholder="TableName" required="required">
-						</div>
-					</div>
-					<div class="form-group" style="position: relative; top: 30px">
-						<label for="inputPassword3" class="col-sm-2 control-label">责任人</label>
-						<div class="col-sm-10">
-							<input type="text" class="form-control" id="inputPassword3"
+							<input type="text" class="form-control"
 								name="owner" placeholder="owner" required="required">
 						</div>
 					</div>
 					<div class="form-group" style="position: relative; top: 30px">
-						<label for="inputPassword3" class="col-sm-2 control-label">联系方式</label>
+						<label class="col-sm-2 control-label">联系方式</label>
 						<div class="col-sm-10">
 							<input type="text" class="form-control" id="inputPassword3"
 								name="mobile" placeholder="mobile" required="required">
 						</div>
 					</div>
-					<div style="position: relative; top: 100px">
-						<button type="reset" class="btn btn-default"
+					<div style="position: relative; top: 30px">
+						<button type="reset" class="btn btn-info"
 							style="position: relative; left: 40px">清空</button>
 						<button type="submit" class="btn btn-info"
 							style="position: relative; left: 350px">新增</button>

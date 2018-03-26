@@ -14,7 +14,7 @@
 
     <insert id="insert" parameterType="com.neo.datamanager.dao.RuleEntity">
         INSERT INTO
-        dq_phone_alarm_conf(id,app_Name,job_Name,table_Name,owner,mobile)
+        dq_phone_alarm_conf(id,app_Name,table_Name,owner,mobile)
         VALUES(#{id},#{appName},#{tableName},#{owner},#{mobile});
     </insert>
     <update id="update" parameterType="com.neo.datamanager.dao.RuleEntity">

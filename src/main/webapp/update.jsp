@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>修改用户信息</title>
+<title>编辑规则信息</title>
 <%
 	pageContext.setAttribute("APP_PATH", request.getContextPath());
 %>
@@ -28,7 +28,7 @@
 			<!-- 标题 -->
 			<div class="row">
 				<div class="col-md-4 col-md-offset-4">
-					<h3>修改用户</h3>
+					<h3>修改规则</h3>
 					<a href="#" class="update-guanbi"> <img
 						src="${APP_PATH }/static/img/popup_guanbi.png"
 						style="position: relative; left: 280px; top: -50px;">
@@ -36,32 +36,40 @@
 				</div>
 			</div>
 
-			<div class="row" style="width: 480px; height: 300px;">
-				<form action="${APP_PATH }/updateRule" class="form-horizontal">
-					<input type="hidden" name="userid" value="${param.userid}">
-					<input type="hidden" name="username" value="${param.username}">
+			<div class="row" style="width: 480px; height: 360px;">
+				<form action="${APP_PATH }/updateRule" class="form-horizontal" method="post">
 					<div class="form-group" style="position: relative; top: 30px">
-						<label for="inputPassword3" class="col-sm-2 control-label">用户名</label>
+						<label class="col-sm-2 control-label">ID</label>
 						<div class="col-sm-10">
-							<p class="form-control-static">${param.username}</p>
+							<input type="text" name="id" readonly="readonly" class="form-control" value="${param.id}">
 						</div>
 					</div>
-					<div class="form-group" style="position: relative; top: 55px">
-						<label for="inputPassword3" class="col-sm-2 control-label">密码</label>
+					<div class="form-group" style="position: relative; top: 30px">
+						<label class="col-sm-2 control-label">应用名</label>
 						<div class="col-sm-10">
-							<input type="password" class="form-control" id="inputPassword3"
-								placeholder="Password" name="password" value="${param.password}">
+							<input type="text" name="appName" class="form-control" value="${param.appname}">
 						</div>
 					</div>
-					<div class="form-group" style="position: relative; top: 80px">
-						<label for="inputEmail3" class="col-sm-2 control-label">邮箱</label>
+					<div class="form-group" style="position: relative; top: 30px">
+						<label class="col-sm-2 control-label">表名</label>
 						<div class="col-sm-10">
-							<input type="email" class="form-control" id="inputEmail3"
-								placeholder="Email" name="email" value="${param.email}">
+							<input type="text" name="tableName" class="form-control" value="${param.tablename}">
 						</div>
 					</div>
-					<div style="position: relative; top: 100px">
-						<button type="reset" class="btn btn-default"
+					<div class="form-group" style="position: relative; top: 30px">
+						<label class="col-sm-2 control-label">责任人</label>
+						<div class="col-sm-10">
+							<input type="text" name="owner" class="form-control" value="${param.owner}">
+						</div>
+					</div>
+					<div class="form-group" style="position: relative; top: 30px">
+						<label class="col-sm-2 control-label">联系方式</label>
+						<div class="col-sm-10">
+							<input type="text" name="mobile" class="form-control" value="${param.mobile}">
+						</div>
+					</div>
+					<div style="position: relative; top: 30px">
+						<button type="reset" class="btn btn-info"
 							style="position: relative; left: 40px">清空</button>
 						<button type="submit" class="btn btn-info"
 							style="position: relative; left: 350px">修改</button>
@@ -75,7 +83,7 @@
 <script type="text/javascript">
 	$(document).ready(function() {
 		/* 当请求的参数中带有userid时显示“编辑模态框”，否则隐藏 */
-		if(${param.userid}){
+		if(${param.id}){
 			$(".update").show();
 			$(".add").hide();
 		}

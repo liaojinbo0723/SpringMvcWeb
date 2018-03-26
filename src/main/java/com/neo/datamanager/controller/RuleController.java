@@ -37,7 +37,7 @@ public class RuleController {
 	@RequestMapping("/addRule")
 	public String add(RuleEntity ruleEntity) {
 	    System.out.println("添加");
-		System.out.println(ruleEntity.getId());
+		System.out.println(ruleEntity.getAppName());
 		ruleService.InsertRule(ruleEntity);
         return "redirect:/index.jsp";
 	}
@@ -58,8 +58,11 @@ public class RuleController {
 	 * @return
 	 */
 	@RequestMapping("/updateRule")
-	public void update(int id) {
-
-		ruleService.updateRule(id);
+	public String update(RuleEntity ruleEntity) {
+		System.out.println("编辑");
+		System.out.println(ruleEntity.getId());
+		System.out.println("mobile:" + ruleEntity.getMobile());
+		ruleService.updateRule(ruleEntity);
+		return "redirect:/index.jsp";
 	}
 }
